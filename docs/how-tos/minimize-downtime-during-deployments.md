@@ -55,7 +55,7 @@ spec:
 ```
 
 
-> Note: The "sleep" command assumes the container is based on Linux. For Windows containers the equivalent command is `["powershell.exe","-c","sleep","90"]`.
+> Note: The "sleep" command assumes the container is based on Linux. For Windows containers the preferred equivalent command is `["powershell.exe","-c","sleep","90"]`. If powershell is not installed on the image you can use `["cmd","/c", "ping 127.0.0.1 -n 90 > nul"]`.
 
 The addition of the `preStop` container life cycle hook will:
   - delay Kubernetes sending `SIGTERM` to the container by 90 seconds, but put the pod immediately in `Terminating` state
